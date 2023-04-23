@@ -38,8 +38,6 @@ for i in range(len(test)):
 	# predict
 	model = ARIMA(train, order=(1,0,0))
 	model_fit = model.fit()
-	#model = ARIMA(diff, order=(1,0,0))
-	#model_fit = model.fit(trend='nc', disp=0)
 	yhat = model_fit.forecast()[0]
 	yhat = bias + inverse_difference(history, yhat, months_in_year)
 	# yhat = inverse_difference(history, yhat, months_in_year)
